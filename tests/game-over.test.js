@@ -269,8 +269,13 @@ describe('US-013: Game Over Screens', () => {
       fireShot('enemy', 0, 0); // Hit
       fireShot('enemy', 0, 1); // Hit
       fireShot('enemy', 0, 2); // Hit
-      for (let i = 0; i < 17; i++) {
-        fireShot('enemy', 9, i); // All misses
+      // Distribute 17 misses across valid grid coordinates
+      let missCount = 0;
+      for (let row = 5; row < 10 && missCount < 17; row++) {
+        for (let col = 0; col < 10 && missCount < 17; col++) {
+          fireShot('enemy', row, col); // Miss
+          missCount++;
+        }
       }
       
       const state = getGameState();
@@ -381,7 +386,6 @@ describe('US-013: Game Over Screens', () => {
       fireShot('player', 0, 0); // Hit enemy carrier
       fireShot('player', 9, 9); // Miss
       fireShot('enemy', 5, 5); // Miss on player
-      fireShot('enemy', 0, 5); // Hit player carrier
       
       endGame('player');
       
@@ -392,7 +396,7 @@ describe('US-013: Game Over Screens', () => {
       expect(state.enemyBoard[9][9]).toBe(CELL_STATE.MISS);
       
       // Player board should show ships, hits, misses
-      // At 0,5 there's no ship so it becomes MISS (not HIT since we shot at EMPTY)
+      // At 5,5 there's no ship so it becomes MISS
       expect(state.playerBoard[5][5]).toBe(CELL_STATE.MISS);
     });
   });
