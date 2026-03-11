@@ -1,0 +1,11 @@
+=== US-006: Random Placement & Reset ===
+COMPLETED: 2026-03-11T19:56:00+03:00
+FILES CHANGED: tests/random-placement.test.js
+KEY DECISIONS: Added comprehensive test coverage for randomizeShips() and initGame() reset functionality. Tests verify all 5 ships placed without overlaps, within grid boundaries, and that reset properly clears board state.
+DEPENDENCIES ADDED: None
+
+STATUS: done
+STORY_BRANCH: 704aa121-US-006
+PR_URL: https://github.com/hikmetgulsesli/battleship/pull/7
+CHANGES: Added comprehensive tests for randomizeShips() function - verifies all 5 ships placed with no overlaps (17 total cells), ships within 10x10 grid boundaries, reset clears ships and board, reset returns to SETUP phase
+TESTS: 10 new tests covering random placement (no overlaps, within boundaries, clears existing, valid positions only), reset functionality (clears ships, clears board, returns to SETUP phase, UI updates immediately), and integration (randomize-then-reset sequence)
