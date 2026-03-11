@@ -1,4 +1,6 @@
 /* Design Tokens - Naval/Ocean Theme */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
 :root {
   /* Primary colors */
   --color-ocean-bg: #0B1D2E;
@@ -89,6 +91,10 @@ body {
   border-radius: 2px;
   cursor: crosshair;
   transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
 }
 
 .grid-cell:hover {
@@ -101,10 +107,45 @@ body {
 
 .grid-cell.hit {
   background-color: var(--color-hit);
+  color: white;
 }
 
 .grid-cell.miss {
   background-color: var(--color-miss);
+  color: #64748b;
+}
+
+/* Grid header cells */
+.grid-header {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #94a3b8;
+  font-size: 0.875rem;
+}
+
+/* Preview states for ship placement */
+.grid-cell.preview-valid {
+  background-color: rgba(34, 197, 94, 0.5);
+}
+
+.grid-cell.preview-invalid {
+  background-color: rgba(239, 68, 68, 0.5);
+}
+
+/* Ship placement button */
+.ship-btn {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.ship-btn:focus {
+  ring: 2px solid var(--color-primary);
 }
 
 /* Coordinate labels */
@@ -129,6 +170,11 @@ body {
   font-size: 0.75rem;
   color: #94a3b8;
   font-weight: 600;
+}
+
+/* Font display override for Sora */
+.font-display {
+  font-family: 'Sora', sans-serif;
 }
 
 /* Responsive */
