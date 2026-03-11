@@ -1,0 +1,149 @@
+/* Design Tokens - Naval/Ocean Theme */
+:root {
+  /* Primary colors */
+  --color-ocean-bg: #0B1D2E;
+  --color-water: #1a2333;
+  --color-ship: #8ba1b5;
+  --color-hit: #ef4444;
+  --color-miss: #e2e8f0;
+  
+  /* Extended palette from Stitch */
+  --color-primary: #f4c025;
+  --color-background-light: #f8f8f5;
+  --color-background-dark: #0B1D2E;
+  --color-grid-line: #1e3a8a;
+  --color-naval-surface: #1a2333;
+  --color-naval-grid: #26344d;
+  --color-ship-hull: #8ba1b5;
+  --color-highlight-valid: #eab308;
+  --color-highlight-invalid: #ef4444;
+  
+  /* Typography */
+  --font-display: 'Space Grotesk', sans-serif;
+  
+  /* Border radius */
+  --radius-default: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+}
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-display);
+  background-color: var(--color-ocean-bg);
+  color: #f8f8f5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* Game container */
+.game-container {
+  display: flex;
+  gap: 4rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Grid container */
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.grid-container h2 {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+/* 10x10 Grid */
+.battle-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  gap: 2px;
+  background-color: var(--color-naval-grid);
+  padding: 4px;
+  border-radius: var(--radius-lg);
+  width: 400px;
+  height: 400px;
+}
+
+.grid-cell {
+  aspect-ratio: 1;
+  background-color: var(--color-water);
+  border-radius: 2px;
+  cursor: crosshair;
+  transition: background-color 0.2s ease;
+}
+
+.grid-cell:hover {
+  background-color: var(--color-naval-grid);
+}
+
+.grid-cell.ship {
+  background-color: var(--color-ship);
+}
+
+.grid-cell.hit {
+  background-color: var(--color-hit);
+}
+
+.grid-cell.miss {
+  background-color: var(--color-miss);
+}
+
+/* Coordinate labels */
+.coord-labels-x {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  width: 400px;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.coord-labels-y {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: absolute;
+  left: -1.5rem;
+  top: 0;
+  bottom: 0;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .battle-grid {
+    width: 320px;
+    height: 320px;
+  }
+  
+  .coord-labels-x {
+    width: 320px;
+  }
+  
+  .game-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
