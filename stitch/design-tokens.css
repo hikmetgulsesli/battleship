@@ -1,0 +1,22 @@
+/* design-tokens.css — auto-generated from Stitch HTML */
+:root {
+  --color-primary: #f4c025;
+  --color-background-light: #f8f8f5;
+  --color-background-dark: #0B1D2E;
+  --color-hit: #ef4444;
+  --color-miss: #e2e8f0;
+  --color-grid-line: #1e3a8a;
+  --font-display: Space Grotesk;
+  --radius-DEFAULT: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+  --color-naval-surface: #1a2333;
+  --color-naval-grid: #26344d;
+  --color-ship-hull: #8ba1b5;
+  --color-highlight-valid: #eab308;
+  --color-highlight-invalid: #ef4444;
+  --font-google-0: Sora;
+  --font-google-1: Inter;
+  --font-google-2: Space Grotesk;
+}
