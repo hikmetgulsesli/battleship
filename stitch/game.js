@@ -361,6 +361,71 @@ function getFleetStatus(boardType) {
   }));
 }
 
+/**
+ * Get all available (unshot) cells on the player's board
+ * @returns {Array<{row: number, col: number}>} Array of available cell coordinates
+ */
+function getAvailableCells() {
+  const available = [];
+  const playerBoard = gameState.playerBoard;
+  
+  for (let row = 0; row < GRID_SIZE; row++) {
+    for (let col = 0; col < GRID_SIZE; col++) {
+      const cell = playerBoard[row][col];
+      // Only include cells that haven't been shot at (not HIT or MISS)
+      if (cell !== CELL_STATE.HIT && cell !== CELL_STATE.MISS) {
+        available.push({ row, col });
+      }
+    }
+  }
+  
+  return available;
+}
+
+/**
+ * AI selects a random unshot cell to target
+ * @returns {{row: number, col: number}|null} Selected target coordinates or null if no cells available
+ */
+function aiSelectTarget() {
+  const availableCells = getAvailableCells();
+  
+  if (availableCells.length === 0) {
+    return null;
+  }
+  
+  const randomIndex = Math.floor(Math.random() * availableCells.length);
+  return availableCells[randomIndex];
+}
+
+/**
+ * AI makes a shot at the player's board
+ * This is called from the UI after a delay for better UX
+ * @returns {Object} Result of the AI shot {hit, sunk, gameOver, winner, target}
+ */
+function aiFireShot() {
+  const target = aiSelectTarget();
+  
+  if (!target) {
+    // No available cells - shouldn't happen but handle gracefully
+    // All player cells have been shot, enemy wins
+    return {
+      hit: false,
+      sunk: false,
+      gameOver: true,
+      winner: 'enemy',
+      target: null
+    };
+  }
+  
+  // Fire at the selected target
+  const result = fireShot('enemy', target.row, target.col);
+  
+  return {
+    ...result,
+    target
+  };
+}
+
 // Initialize grids in DOM (only in browser environment)
 function initGrid(gridId) {
   if (typeof document === 'undefined') return;
@@ -410,12 +475,15 @@ export {
   fireShot,
   validateShipPlacement,
   randomizeShips,
-  getFleetStatus
+  getFleetStatus,
+  getAvailableCells,
+  aiSelectTarget,
+  aiFireShot
 };
 
 // Also expose globally for browser usage
 if (typeof window !== 'undefined') {
-  window.SHOPS = SHIPS;
+  window.SHIPS = SHIPS;
   window.GRID_SIZE = GRID_SIZE;
   window.PHASES = PHASES;
   window.CELL_STATE = CELL_STATE;
@@ -430,4 +498,7 @@ if (typeof window !== 'undefined') {
   window.validateShipPlacement = validateShipPlacement;
   window.randomizeShips = randomizeShips;
   window.getFleetStatus = getFleetStatus;
+  window.getAvailableCells = getAvailableCells;
+  window.aiSelectTarget = aiSelectTarget;
+  window.aiFireShot = aiFireShot;
 }
