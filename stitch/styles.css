@@ -51,172 +51,16 @@ body {
   padding: 1rem;
 }
 
-/* Header */
-header {
-  width: 100%;
-  max-width: 1400px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 1.5rem;
-  background-color: var(--color-naval-surface);
-  border-radius: var(--radius-lg);
-  margin-bottom: 1.5rem;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.logo-icon {
-  font-size: 2rem;
-  color: var(--color-primary);
-}
-
-.logo h1 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #f8f8f5;
-}
-
-.server-status {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.875rem;
-  color: #94a3b8;
-}
-
-.status-dot {
-  width: 8px;
-  height: 8px;
-  background-color: #22c55e;
-  border-radius: 50%;
-  box-shadow: 0 0 8px #22c55e;
-}
-
-/* Main Content */
-main {
-  width: 100%;
-  max-width: 1400px;
-}
-
-/* Header Section */
-.header-section {
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-.header-section h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  background: linear-gradient(to right, #fff, #94a3b8);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 0.5rem;
-}
-
-.header-section p {
-  color: #94a3b8;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-/* Battlefield Layout */
-.battlefield {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-/* Fleet Section */
-.fleet-section {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.section-header h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #e2e8f0;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.section-header h3 .material-symbols-outlined {
-  color: var(--color-primary);
-}
-
-.placement-status {
-  font-size: 0.875rem;
-  font-weight: 500;
-  background-color: var(--color-naval-surface);
-  padding: 0.25rem 0.75rem;
-  border-radius: var(--radius-full);
-  color: #94a3b8;
-}
-
-/* Grid Wrapper */
-.grid-wrapper {
-  padding: 1rem;
-  background-color: rgba(26, 35, 51, 0.4);
-  border-radius: var(--radius-xl);
-  border: 1px solid var(--color-naval-grid);
-  backdrop-filter: blur(4px);
-}
-
-/* Grid with Labels */
-.grid-with-labels {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.y-labels {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+/* Grid Header */
+.grid-header {
   width: 1.5rem;
-  padding: 1.5rem 0;
-}
-
-.y-labels span {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #64748b;
-  text-align: center;
-}
-
-.x-labels-row {
+  height: 1.5rem;
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.x-labels {
-  display: grid;
-  grid-template-columns: repeat(10, var(--cell-size));
-  gap: 2px;
-}
-
-.x-labels span {
+  align-items: center;
+  justify-content: center;
   font-size: 0.75rem;
   font-weight: 600;
   color: #64748b;
-  text-align: center;
 }
 
 /* Battle Grid */
@@ -242,6 +86,8 @@ main {
   justify-content: center;
   font-weight: bold;
   font-size: 0.875rem;
+  width: var(--cell-size);
+  height: var(--cell-size);
 }
 
 .grid-cell:hover {
@@ -307,214 +153,6 @@ main {
   background-color: rgba(239, 68, 68, 0.5);
 }
 
-/* Enemy Preview (faded) */
-.enemy-preview {
-  opacity: 0.6;
-  filter: grayscale(50%);
-  pointer-events: none;
-}
-
-/* Control Panel */
-.control-panel {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  width: 280px;
-  background-color: rgba(26, 35, 51, 0.8);
-  padding: 1.5rem;
-  border-radius: var(--radius-xl);
-  border: 1px solid var(--color-naval-grid);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-}
-
-.control-panel h3 {
-  font-size: 0.875rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #64748b;
-}
-
-/* Ship Selection */
-.ship-selection {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.ship-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.75rem;
-  border-radius: var(--radius-lg);
-  background-color: var(--color-background-dark);
-  border: 1px solid var(--color-naval-grid);
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.ship-item:hover {
-  border-color: rgba(244, 192, 37, 0.5);
-}
-
-.ship-item.selected {
-  background-color: rgba(244, 192, 37, 0.1);
-  border-color: var(--color-primary);
-  box-shadow: 0 0 15px rgba(19, 91, 236, 0.15);
-}
-
-.ship-item.placed {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.ship-item-info {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.ship-item-info .material-symbols-outlined {
-  color: #64748b;
-}
-
-.ship-item.selected .ship-item-info .material-symbols-outlined {
-  color: var(--color-primary);
-}
-
-.ship-item-info span {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #e2e8f0;
-}
-
-.ship-item.selected .ship-item-info span {
-  color: #fff;
-}
-
-.ship-segments {
-  display: flex;
-  gap: 2px;
-}
-
-.ship-segment {
-  width: 12px;
-  height: 12px;
-  background-color: var(--color-ship-hull);
-  border-radius: 2px;
-}
-
-.ship-item.selected .ship-segment {
-  background-color: var(--color-highlight-valid);
-  box-shadow: 0 0 5px rgba(234, 179, 8, 0.5);
-}
-
-/* Divider */
-.divider {
-  width: 100%;
-  height: 1px;
-  background-color: var(--color-naval-grid);
-}
-
-/* Controls */
-.controls {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.control-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1rem;
-  border-radius: var(--radius-lg);
-  background-color: var(--color-background-dark);
-  border: 1px solid var(--color-naval-grid);
-  color: #e2e8f0;
-  font-family: inherit;
-  font-size: 0.875rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.control-btn:hover {
-  background-color: var(--color-naval-surface);
-  border-color: rgba(244, 192, 37, 0.5);
-}
-
-.control-btn .material-symbols-outlined {
-  font-size: 1.25rem;
-}
-
-.control-btn.danger:hover {
-  background-color: rgba(239, 68, 68, 0.1);
-  color: #f87171;
-  border-color: rgba(239, 68, 68, 0.3);
-}
-
-.btn-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
-}
-
-.ready-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 1rem;
-  border-radius: var(--radius-lg);
-  background-color: var(--color-primary);
-  border: none;
-  color: #0B1D2E;
-  font-family: inherit;
-  font-size: 1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  margin-top: 0.5rem;
-}
-
-.ready-btn:hover:not(:disabled) {
-  background-color: #eab308;
-  box-shadow: 0 0 20px rgba(244, 192, 37, 0.4);
-}
-
-.ready-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.ready-btn .material-symbols-outlined {
-  font-size: 1.25rem;
-}
-
-/* Instructions */
-.instructions {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 2rem;
-  padding: 0.75rem 1.5rem;
-  background-color: rgba(26, 35, 51, 0.5);
-  border-radius: var(--radius-full);
-  border: 1px solid rgba(38, 52, 77, 0.5);
-  font-size: 0.875rem;
-  color: #64748b;
-}
-
-.instructions .material-symbols-outlined {
-  font-size: 1.125rem;
-}
-
 /* ========================================
    RESPONSIVE STYLES
    ======================================== */
@@ -529,19 +167,6 @@ main {
     padding: 1rem;
   }
   
-  .battlefield {
-    gap: 1.5rem;
-  }
-  
-  .control-panel {
-    width: 240px;
-    padding: 1rem;
-  }
-  
-  .x-labels {
-    grid-template-columns: repeat(10, var(--cell-size));
-  }
-  
   .battle-grid {
     grid-template-columns: repeat(10, var(--cell-size));
     grid-template-rows: repeat(10, var(--cell-size));
@@ -552,40 +177,6 @@ main {
 @media (max-width: 900px) {
   :root {
     --cell-size: 28px;
-  }
-  
-  .battlefield {
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  
-  .fleet-section {
-    flex: 1;
-    min-width: 300px;
-  }
-  
-  .control-panel {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-  
-  .enemy-preview {
-    display: none;
-  }
-  
-  .header-section h2 {
-    font-size: 1.5rem;
-  }
-  
-  header {
-    flex-direction: column;
-    gap: 0.75rem;
-    text-align: center;
-  }
-  
-  .logo h1 {
-    font-size: 1.25rem;
   }
 }
 
@@ -599,74 +190,6 @@ main {
     padding: 0.5rem;
   }
   
-  header {
-    padding: 0.75rem 1rem;
-    margin-bottom: 1rem;
-  }
-  
-  .logo h1 {
-    font-size: 1rem;
-    letter-spacing: 0.05em;
-  }
-  
-  .server-status {
-    font-size: 0.75rem;
-  }
-  
-  .header-section {
-    margin-bottom: 1rem;
-  }
-  
-  .header-section h2 {
-    font-size: 1.25rem;
-  }
-  
-  .header-section p {
-    font-size: 0.875rem;
-  }
-  
-  .battlefield {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-  
-  .fleet-section {
-    width: 100%;
-    min-width: unset;
-  }
-  
-  .section-header {
-    flex-direction: column;
-    gap: 0.5rem;
-    align-items: flex-start;
-  }
-  
-  .section-header h3 {
-    font-size: 1rem;
-  }
-  
-  .placement-status {
-    font-size: 0.75rem;
-  }
-  
-  .grid-wrapper {
-    padding: 0.5rem;
-  }
-  
-  .y-labels {
-    display: none;
-  }
-  
-  .x-labels {
-    padding: 0 0.5rem;
-    grid-template-columns: repeat(10, var(--cell-size));
-  }
-  
-  .x-labels span {
-    font-size: 0.625rem;
-  }
-  
   .battle-grid {
     grid-template-columns: repeat(10, var(--cell-size));
     grid-template-rows: repeat(10, var(--cell-size));
@@ -678,48 +201,8 @@ main {
     font-size: 0.75rem;
   }
   
-  .control-panel {
-    max-width: 100%;
-    padding: 1rem;
-  }
-  
-  .control-panel h3 {
-    font-size: 0.75rem;
-  }
-  
-  .ship-item {
-    padding: 0.5rem 0.75rem;
-  }
-  
-  .ship-item-info span {
-    font-size: 0.75rem;
-  }
-  
-  .ship-segment {
-    width: 10px;
-    height: 10px;
-  }
-  
-  .control-btn {
-    padding: 0.625rem 0.75rem;
-    font-size: 0.75rem;
-  }
-  
-  .ready-btn {
-    padding: 0.875rem;
-    font-size: 0.875rem;
-  }
-  
-  .instructions {
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    font-size: 0.75rem;
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  .instructions p {
-    max-width: 280px;
+  .grid-header {
+    font-size: 0.625rem;
   }
 }
 
@@ -733,10 +216,6 @@ main {
     grid-template-columns: repeat(10, var(--cell-size));
     grid-template-rows: repeat(10, var(--cell-size));
   }
-  
-  .x-labels {
-    grid-template-columns: repeat(10, var(--cell-size));
-  }
 }
 
 /* Touch device optimizations */
@@ -746,18 +225,8 @@ main {
     min-height: 30px;
   }
   
-  .control-btn,
-  .ready-btn,
-  .ship-item {
-    min-height: 44px;
-  }
-  
   .grid-cell:active {
     background-color: var(--color-naval-grid);
-  }
-  
-  .ship-item:active {
-    transform: scale(0.98);
   }
 }
 
