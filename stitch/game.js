@@ -60,6 +60,17 @@ function createInitialState() {
 // Game state singleton
 let gameState = createInitialState();
 
+// Callback for game over (set by UI layer)
+let gameOverCallback = null;
+
+/**
+ * Set a callback to be called when game ends
+ * @param {Function} callback - Function to call with (winner) parameter
+ */
+function setGameOverCallback(callback) {
+  gameOverCallback = callback;
+}
+
 /**
  * Get current game state
  * @returns {Object} Current game state
@@ -238,6 +249,11 @@ function fireShot(shooter, row, col) {
     gameOver = true;
     winner = shooter;
     endGame(winner);
+    
+    // Call the game over callback if set
+    if (gameOverCallback) {
+      gameOverCallback(winner);
+    }
   } else {
     // Switch turns
     gameState.currentPlayerTurn = isPlayer ? 'enemy' : 'player';
@@ -478,12 +494,29 @@ export {
   getFleetStatus,
   getAvailableCells,
   aiSelectTarget,
-  aiFireShot
+  aiFireShot,
+  setGameOverCallback
 };
 
 // Also expose globally for browser usage
 if (typeof window !== 'undefined') {
+  window.SHIPS = SHIPS;
+  window.GRID_SIZE = GRID_SIZE;
+  window.PHASES = PHASES;
+  window.CELL_STATE = CELL_STATE;
+  window.createEmptyGrid = createEmptyGrid;
+  window.createInitialState = createInitialState;
+  window.getGameState = getGameState;
+  window.initGame = initGame;
+  window.startBattle = startBattle;
+  window.endGame = endGame;
+  window.placeShip = placeShip;
+  window.fireShot = fireShot;
+  window.validateShipPlacement = validateShipPlacement;
+  window.randomizeShips = randomizeShips;
+  window.getFleetStatus = getFleetStatus;
   window.getAvailableCells = getAvailableCells;
   window.aiSelectTarget = aiSelectTarget;
   window.aiFireShot = aiFireShot;
+  window.setGameOverCallback = setGameOverCallback;
 }
