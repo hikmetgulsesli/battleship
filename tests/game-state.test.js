@@ -260,7 +260,7 @@ describe('US-002: Game State Management', () => {
     test('should throw error for already shot position', () => {
       fireShot('player', 9, 9);
       
-      expect(() => fireShot('player', 9, 9)).toThrow('Already shot');
+      expect(() => fireShot('player', 9, 9)).toThrow('Already shot at this position');
     });
 
     test('should throw error when not in BATTLE phase', () => {

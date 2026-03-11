@@ -63,7 +63,7 @@ describe('US-008: Battle Phase Shooting Mechanics', () => {
       const state = getGameState();
       expect(state.currentPlayerTurn).toBe('player');
       
-      // Enemy fires - should still work but turn logic should handle it
+      // Enemy fires - should still work (UI controls turn, not this function)
       const result = fireShot('enemy', 0, 0);
       expect(result).toBeDefined();
     });
@@ -73,22 +73,27 @@ describe('US-008: Battle Phase Shooting Mechanics', () => {
     test('should throw error when shooting same cell', () => {
       fireShot('player', 5, 5);
       
-      expect(() => fireShot('player', 5, 5)).toThrow('Already shot');
+      expect(() => fireShot('player', 5, 5)).toThrow('Already shot at this position');
     });
 
     test('should track all player shots', () => {
-      fireShot('player', 0, 0);
-      fireShot('player', 0, 1);
-      fireShot('player', 0, 2);
+      // Each shot alternates turns, so we need to track carefully
+      // Initial state: player turn
+      fireShot('player', 0, 0);  // player shot 1, turn -> enemy
+      fireShot('enemy', 0, 1);   // enemy shot 1, turn -> player  
+      fireShot('player', 0, 2);  // player shot 2, turn -> enemy
       
       const state = getGameState();
-      expect(state.playerShots).toHaveLength(3);
+      expect(state.playerShots).toHaveLength(2); // player shot twice (0,0) and (0,2)
     });
 
     test('should not allow enemy to shoot same cell', () => {
-      fireShot('enemy', 0, 0);
+      // Player shoots first, then enemy
+      fireShot('player', 0, 0);
+      fireShot('enemy', 0, 1); // enemy shoots
       
-      expect(() => fireShot('enemy', 0, 0)).toThrow('Already shot');
+      // Try to shoot same cell again - should fail
+      expect(() => fireShot('enemy', 0, 1)).toThrow('Already shot at this position');
     });
   });
 
@@ -167,10 +172,15 @@ describe('US-008: Battle Phase Shooting Mechanics', () => {
   describe('Ship sinking detection', () => {
     test('should detect when ship is sunk', () => {
       // Enemy Carrier at row 0, cols 5-9 (5 cells)
+      // Need to alternate turns
       fireShot('player', 0, 5);
+      fireShot('enemy', 8, 8); // enemy turn
       fireShot('player', 0, 6);
+      fireShot('enemy', 8, 7);
       fireShot('player', 0, 7);
+      fireShot('enemy', 7, 8);
       fireShot('player', 0, 8);
+      fireShot('enemy', 7, 7);
       const result = fireShot('player', 0, 9);
       
       expect(result.sunk).toBe(true);
@@ -180,9 +190,13 @@ describe('US-008: Battle Phase Shooting Mechanics', () => {
     test('should return sunkShipName when ship sunk', () => {
       // Sink the Carrier
       fireShot('player', 0, 5);
+      fireShot('enemy', 8, 8);
       fireShot('player', 0, 6);
+      fireShot('enemy', 8, 7);
       fireShot('player', 0, 7);
+      fireShot('enemy', 7, 8);
       fireShot('player', 0, 8);
+      fireShot('enemy', 7, 7);
       const result = fireShot('player', 0, 9);
       
       expect(result.sunkShipName).toBe('Carrier');
