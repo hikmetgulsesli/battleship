@@ -7,10 +7,17 @@
     "dev": "npx serve stitch -l 3543",
     "build": "echo 'Static HTML - build successful'",
     "lint": "echo 'Lint passed'",
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js tests/ --passWithNoTests || echo 'Tests passed'"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js tests/ --passWithNoTests",
+    "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js tests/ --watch"
   },
   "devDependencies": {
     "jest": "^29.7.0",
     "serve": "^14.2.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "transform": {},
+    "moduleFileExtensions": ["js", "mjs"],
+    "testMatch": ["**/tests/**/*.test.js"]
   }
 }
