@@ -412,3 +412,22 @@ export {
   randomizeShips,
   getFleetStatus
 };
+
+// Also expose globally for browser usage
+if (typeof window !== 'undefined') {
+  window.SHOPS = SHIPS;
+  window.GRID_SIZE = GRID_SIZE;
+  window.PHASES = PHASES;
+  window.CELL_STATE = CELL_STATE;
+  window.createEmptyGrid = createEmptyGrid;
+  window.createInitialState = createInitialState;
+  window.getGameState = getGameState;
+  window.initGame = initGame;
+  window.startBattle = startBattle;
+  window.endGame = endGame;
+  window.placeShip = placeShip;
+  window.fireShot = fireShot;
+  window.validateShipPlacement = validateShipPlacement;
+  window.randomizeShips = randomizeShips;
+  window.getFleetStatus = getFleetStatus;
+}
