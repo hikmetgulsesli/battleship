@@ -152,6 +152,10 @@
   
   <!-- Scripts -->
   <script type="module" src="game.js"></script>
+  <script type="module">
+    import { showGameOverScreen } from './game-over.js';
+    window.showGameOverScreen = showGameOverScreen;
+  </script>
   <script src="ship-placement.js"></script>
   
   <script>
