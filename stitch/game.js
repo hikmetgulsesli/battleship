@@ -91,8 +91,15 @@ function startBattle() {
     throw new Error('Cannot start battle: all 5 ships must be placed');
   }
   
+  // Place AI/computer ships automatically only if not already placed
+  if (gameState.enemyShips.length === 0) {
+    randomizeShips('enemy');
+  }
+  
   gameState.phase = PHASES.BATTLE;
   gameState.turnNumber = 1;
+  gameState.currentPlayerTurn = 'player';
+  
   return gameState;
 }
 
