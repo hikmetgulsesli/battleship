@@ -407,11 +407,12 @@ function aiFireShot() {
   
   if (!target) {
     // No available cells - shouldn't happen but handle gracefully
+    // All player cells have been shot, enemy wins
     return {
       hit: false,
       sunk: false,
       gameOver: true,
-      winner: 'player',
+      winner: 'enemy',
       target: null
     };
   }
