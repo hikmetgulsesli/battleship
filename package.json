@@ -1,0 +1,15 @@
+{
+  "name": "battleship",
+  "version": "1.0.0",
+  "description": "Savaş Gemileri (Battleship) oyunu",
+  "type": "module",
+  "scripts": {
+    "dev": "npx serve stitch -l 3543",
+    "build": "echo 'Static HTML - no build needed'",
+    "lint": "echo 'No lint configured for static HTML'",
+    "test": "echo 'No tests configured'"
+  },
+  "devDependencies": {
+    "serve": "^14.2.0"
+  }
+}
