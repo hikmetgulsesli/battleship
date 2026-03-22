@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Trash2, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Trash2, CheckCircle2 } from 'lucide-react';
 import { useShoppingList } from '@/hooks/useShoppingList';
 import { categories } from '@/lib/categories';
 import ProductForm from './ProductForm';

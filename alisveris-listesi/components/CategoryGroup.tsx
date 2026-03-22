@@ -1,6 +1,6 @@
 'use client';
 
-import { Product } from '@/types';
+import { Product, CategoryId } from '@/types';
 import { getCategory } from '@/lib/categories';
 import ProductItem from './ProductItem';
 
@@ -13,7 +13,7 @@ interface CategoryGroupProps {
 }
 
 export default function CategoryGroup({ categoryId, products, onToggle, onRemove, onUpdate }: CategoryGroupProps) {
-  const category = getCategory(categoryId as any);
+  const category = getCategory(categoryId as CategoryId);
   if (!category) return null;
 
   return (
