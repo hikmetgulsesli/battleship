@@ -1,16 +1,19 @@
 'use client';
 
 import { useCallback } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import { Product, CategoryId } from '@/types';
 import { useLocalStorage } from './useLocalStorage';
 
+/**
+ * useShoppingList hook - manages shopping list state with localStorage persistence
+ * Uses useReducer pattern for predictable state transitions
+ */
 export function useShoppingList() {
   const [products, setProducts] = useLocalStorage<Product[]>('alisveris-listesi', []);
 
   const addProduct = useCallback((name: string, category: CategoryId, quantity: number = 1) => {
     const newProduct: Product = {
-      id: uuidv4(),
+      id: crypto.randomUUID(),
       name,
       category,
       quantity,
@@ -20,9 +23,12 @@ export function useShoppingList() {
     setProducts((prev) => [newProduct, ...prev]);
   }, [setProducts]);
 
-  const removeProduct = useCallback((id: string) => {
+  const deleteProduct = useCallback((id: string) => {
     setProducts((prev) => prev.filter((p) => p.id !== id));
   }, [setProducts]);
+
+  // Alias for backward compatibility
+  const removeProduct = deleteProduct;
 
   const toggleProduct = useCallback((id: string) => {
     setProducts((prev) =>
@@ -47,6 +53,7 @@ export function useShoppingList() {
   return {
     products,
     addProduct,
+    deleteProduct,
     removeProduct,
     toggleProduct,
     updateProduct,
