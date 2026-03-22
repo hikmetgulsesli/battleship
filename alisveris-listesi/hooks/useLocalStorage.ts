@@ -21,6 +21,7 @@ export function useLocalStorage<T>(key: string, initialValue: T): [T, (value: T 
       try {
         window.localStorage.setItem(key, JSON.stringify(valueToStore));
       } catch (error) {
+        // Handle localStorage quota exceeded errors gracefully
         console.warn(`Error setting localStorage key "${key}":`, error);
       }
       return valueToStore;
