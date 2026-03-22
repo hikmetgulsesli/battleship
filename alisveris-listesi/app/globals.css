@@ -1,29 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
+@theme inline {
+  /* Primary palette - Orange e-commerce */
+  --color-primary: var(--primary);
+  --color-primary-container: var(--primary-container);
+  --color-primary-fixed: #ff7a2c;
+  --color-primary-fixed-dim: #f46800;
+  --color-primary-dim: #883700;
+  --color-on-primary: var(--on-primary);
+  --color-on-primary-container: var(--on-primary-container);
+  --color-on-primary-fixed: #000000;
+  --color-on-primary-fixed-variant: #4f1d00;
+  --color-surface-tint: var(--primary);
+
+  /* Secondary */
+  --color-secondary: #8f4800;
+  --color-secondary-container: #ffc69f;
+  --color-secondary-dim: #7e3f00;
+  --color-secondary-fixed: #ffc69f;
+  --color-secondary-fixed-dim: #ffb37c;
+  --color-on-secondary: #fff0e8;
+  --color-on-secondary-container: #713800;
+  --color-on-secondary-fixed: #552800;
+  --color-on-secondary-fixed-variant: #5b3e00;
+
+  /* Tertiary */
+  --color-tertiary: #7a5400;
+  --color-tertiary-container: #f7b21f;
+  --color-tertiary-dim: #6b4900;
+  --color-tertiary-fixed: #f7b21f;
+  --color-tertiary-fixed-dim: #e7a407;
+  --color-on-tertiary: #fff1df;
+  --color-on-tertiary-container: #4f3600;
+  --color-on-tertiary-fixed: #342200;
+  --color-on-tertiary-fixed-variant: #5b3e00;
+
+  /* Surface hierarchy - NO lines, only background shifts */
+  --color-surface: var(--surface);
+  --color-surface-container: #eae8e7;
+  --color-surface-container-high: #e4e2e2;
+  --color-surface-container-highest: #dedcdc;
+  --color-surface-container-low: #f2f0f0;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-bright: #f8f6f5;
+  --color-surface-dim: #d5d4d4;
+  --color-surface-variant: #dedcdc;
+
+  /* Background & On */
+  --color-background: var(--background);
+  --color-on-background: var(--on-background);
+  --color-on-surface: var(--on-surface);
+  --color-on-surface-variant: var(--on-surface-variant);
+
+  /* Inverse */
+  --color-inverse-surface: #0e0e0e;
+  --color-inverse-on-surface: #9e9d9c;
+  --color-inverse-primary: #fd6c00;
+
+  /* Error */
+  --color-error: #b02500;
+  --color-error-container: #f95630;
+  --color-error-dim: #b92902;
+  --color-on-error: #ffefec;
+  --color-on-error-container: #520c00;
+
+  /* Outline */
+  --color-outline: #777776;
+  --color-outline-variant: var(--outline-variant);
+
+  /* Fonts */
+  --font-heading: 'Sora', system-ui, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-label: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
 :root {
-  --background: #f8f6f5;
-  --foreground: #2e2f2f;
-  --surface: #f8f6f5;
-  --surface-container-low: #f2f0f0;
-  --surface-container-lowest: #ffffff;
+  /* Core palette from Tactile Pantry design system */
   --primary: #9b3f00;
   --primary-container: #ff7a2c;
+  --on-primary: #fff0ea;
+  --on-primary-container: #401600;
+  --surface-tint: #9b3f00;
+
+  --secondary: #8f4800;
+  --secondary-container: #ffc69f;
+  --on-secondary: #fff0e8;
+  --on-secondary-container: #713800;
+
+  --tertiary: #7a5400;
+  --tertiary-container: #f7b21f;
+  --on-tertiary: #fff1df;
+  --on-tertiary-container: #4f3600;
+
+  /* Surface hierarchy */
+  --surface: #f8f6f5;
+  --surface-container: #eae8e7;
+  --surface-container-high: #e4e2e2;
+  --surface-container-highest: #dedcdc;
+  --surface-container-low: #f2f0f0;
+  --surface-container-lowest: #ffffff;
+  --surface-bright: #f8f6f5;
+  --surface-dim: #d5d4d4;
+  --surface-variant: #dedcdc;
+
+  /* Background */
+  --background: #f8f6f5;
+  --on-background: #2e2f2f;
   --on-surface: #2e2f2f;
   --on-surface-variant: #6b6c6c;
-  --outline-variant: #c4c5c5;
-}
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-}
+  /* Inverse */
+  --inverse-surface: #0e0e0e;
+  --inverse-on-surface: #9e9d9c;
+  --inverse-primary: #fd6c00;
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Error */
+  --error: #b02500;
+  --error-container: #f95630;
+  --error-dim: #b92902;
+  --on-error: #ffefec;
+  --on-error-container: #520c00;
+
+  /* Outline */
+  --outline: #777776;
+  --outline-variant: #aeadac;
 }
 
 * {
   -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--on-background);
+  font-family: var(--font-body);
+  min-height: 100dvh;
+}
+
+/* Typography scale from DESIGN.md */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-container-low);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--outline-variant);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--outline);
 }
