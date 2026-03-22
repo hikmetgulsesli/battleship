@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8f6f5;
+  --foreground: #2e2f2f;
+  --surface: #f8f6f5;
+  --surface-container-low: #f2f0f0;
+  --surface-container-lowest: #ffffff;
+  --primary: #9b3f00;
+  --primary-container: #ff7a2c;
+  --on-surface: #2e2f2f;
+  --on-surface-variant: #6b6c6c;
+  --outline-variant: #c4c5c5;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}

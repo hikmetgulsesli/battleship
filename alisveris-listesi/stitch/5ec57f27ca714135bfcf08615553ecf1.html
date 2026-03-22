@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html class="light" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Haftalık Market - Alışveriş Listesi</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "outline-variant": "#aeadac",
+                        "on-tertiary-container": "#4f3600",
+                        "tertiary-fixed-dim": "#e7a407",
+                        "on-primary-container": "#401600",
+                        "tertiary-fixed": "#f7b21f",
+                        "background": "#f8f6f5",
+                        "on-secondary-fixed": "#552800",
+                        "surface-tint": "#9b3f00",
+                        "surface-container-high": "#e4e2e2",
+                        "secondary-fixed-dim": "#ffb37c",
+                        "primary-dim": "#883700",
+                        "on-background": "#2e2f2f",
+                        "surface-variant": "#dedcdc",
+                        "error-container": "#f95630",
+                        "on-tertiary": "#fff1df",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-dim": "#7e3f00",
+                        "secondary-container": "#ffc69f",
+                        "surface": "#f8f6f5",
+                        "on-tertiary-fixed": "#342200",
+                        "primary-fixed-dim": "#f46800",
+                        "error": "#b02500",
+                        "primary-container": "#ff7a2c",
+                        "surface-dim": "#d5d4d4",
+                        "secondary": "#8f4800",
+                        "on-primary-fixed": "#000000",
+                        "on-secondary-container": "#713800",
+                        "surface-container-highest": "#dedcdc",
+                        "on-primary": "#fff0ea",
+                        "on-secondary": "#fff0e8",
+                        "inverse-primary": "#fd6c00",
+                        "inverse-surface": "#0e0e0e",
+                        "primary-fixed": "#ff7a2c",
+                        "outline": "#777776",
+                        "on-surface-variant": "#5c5b5b",
+                        "on-error": "#ffefec",
+                        "secondary-fixed": "#ffc69f",
+                        "on-primary-fixed-variant": "#4f1d00",
+                        "tertiary-dim": "#6b4900",
+                        "primary": "#9b3f00",
+                        "surface-container-low": "#f2f0f0",
+                        "on-surface": "#2e2f2f",
+                        "on-secondary-fixed-variant": "#7f3f00",
+                        "surface-bright": "#f8f6f5",
+                        "on-tertiary-fixed-variant": "#5b3e00",
+                        "surface-container": "#eae8e7",
+                        "error-dim": "#b92902",
+                        "tertiary": "#7a5400",
+                        "on-error-container": "#520c00",
+                        "inverse-on-surface": "#9e9d9c",
+                        "tertiary-container": "#f7b21f"
+                    },
+                    fontFamily: {
+                        "headline": ["Sora", "Plus Jakarta Sans"],
+                        "body": ["Sora", "Plus Jakarta Sans"],
+                        "label": ["Sora", "Plus Jakarta Sans"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Sora', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-32 selection:bg-primary-container/30">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-black/80 backdrop-blur-md shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center px-6 h-16 w-full max-w-2xl mx-auto">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#9b3f00] dark:text-[#ff7a2c]" data-icon="local_grocery_store">local_grocery_store</span>
+<h1 class="font-['Sora'] font-semibold text-xl tracking-tight text-[#9b3f00] dark:text-[#ff7a2c]">Haftalık Market</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-[#9b3f00] dark:text-[#ff7a2c]" data-icon="shopping_cart">shopping_cart</span>
+</button>
+</div>
+</header>
+<main class="pt-24 px-4 max-w-2xl mx-auto space-y-8">
+<!-- Ürün Ekleme Formu -->
+<section class="bg-surface-container-lowest dark:bg-inverse-surface rounded-xl p-6 shadow-sm">
+<h2 class="font-semibold text-lg mb-4 text-on-surface">Yeni Ürün Ekle</h2>
+<div class="space-y-4">
+<div class="flex flex-col gap-2">
+<label class="text-[10px] font-bold uppercase tracking-wider text-outline">Ürün Adı</label>
+<input class="w-full h-12 px-4 bg-surface-container-low dark:bg-surface-container-high/10 rounded-lg border-none focus:ring-2 focus:ring-primary/40 text-on-surface placeholder:text-outline/60" placeholder="Ürün adı..." type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-2">
+<label class="text-[10px] font-bold uppercase tracking-wider text-outline">Kategori</label>
+<select class="w-full h-12 px-4 bg-surface-container-low dark:bg-surface-container-high/10 rounded-lg border-none focus:ring-2 focus:ring-primary/40 text-on-surface appearance-none">
+<option>Meyve &amp; Sebze</option>
+<option>Süt Ürünleri</option>
+<option>Atıştırmalık</option>
+<option>Temizlik</option>
+</select>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-[10px] font-bold uppercase tracking-wider text-outline">Miktar</label>
+<input class="w-full h-12 px-4 bg-surface-container-low dark:bg-surface-container-high/10 rounded-lg border-none focus:ring-2 focus:ring-primary/40 text-on-surface" type="number" value="1"/>
+</div>
+</div>
+<button class="w-full h-12 mt-2 bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold rounded-xl active:scale-[0.98] transition-all shadow-md">
+                    Ekle
+                </button>
+</div>
+</section>
+<!-- Ürün Listeleri -->
+<div class="space-y-10">
+<!-- Meyve & Sebze -->
+<section class="space-y-4">
+<div class="flex items-baseline justify-between">
+<h3 class="font-headline font-semibold text-xl text-on-surface flex items-center gap-2">
+<span>🍎</span> Meyve &amp; Sebze <span class="text-sm font-normal text-outline ml-1">(3)</span>
+</h3>
+</div>
+<div class="space-y-3">
+<!-- Item 1 -->
+<div class="flex items-center gap-4 bg-surface-container-lowest dark:bg-inverse-surface p-4 rounded-xl shadow-sm min-h-[56px] group">
+<input class="w-6 h-6 rounded-lg border-outline-variant text-primary focus:ring-primary/20" type="checkbox"/>
+<div class="flex-1 flex justify-between items-center">
+<span class="font-medium text-on-surface">Amasya Elması</span>
+<span class="text-sm text-outline px-3 py-1 bg-surface-container-low dark:bg-white/5 rounded-full">2 kg</span>
+</div>
+<button class="p-2 text-error/60 hover:text-error transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="delete">delete</span>
+</button>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center gap-4 bg-surface-container-lowest dark:bg-inverse-surface p-4 rounded-xl shadow-sm min-h-[56px] group">
+<input class="w-6 h-6 rounded-lg border-outline-variant text-primary focus:ring-primary/20" type="checkbox"/>
+<div class="flex-1 flex justify-between items-center">
+<span class="font-medium text-on-surface">Çeri Domates</span>
+<span class="text-sm text-outline px-3 py-1 bg-surface-container-low dark:bg-white/5 rounded-full">1 paket</span>
+</div>
+<button class="p-2 text-error/60 hover:text-error transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="delete">delete</span>
+</button>
+</div>
+<!-- Item 3 -->
+<div class="flex items-center gap-4 bg-surface-container-lowest dark:bg-inverse-surface p-4 rounded-xl shadow-sm min-h-[56px] group">
+<input checked="" class="w-6 h-6 rounded-lg border-outline-variant text-primary focus:ring-primary/20" type="checkbox"/>
+<div class="flex-1 flex justify-between items-center opacity-40">
+<span class="font-medium text-on-surface line-through">Kuru Soğan</span>
+<span class="text-sm text-outline px-3 py-1 bg-surface-container-low dark:bg-white/5 rounded-full">3 kg</span>
+</div>
+<button class="p-2 text-error/60 hover:text-error transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Süt Ürünleri -->
+<section class="space-y-4">
+<div class="flex items-baseline justify-between">
+<h3 class="font-headline font-semibold text-xl text-on-surface flex items-center gap-2">
+<span>🥛</span> Süt Ürünleri <span class="text-sm font-normal text-outline ml-1">(1)</span>
+</h3>
+</div>
+<div class="space-y-3">
+<div class="flex items-center gap-4 bg-surface-container-lowest dark:bg-inverse-surface p-4 rounded-xl shadow-sm min-h-[56px] group">
+<input class="w-6 h-6 rounded-lg border-outline-variant text-primary focus:ring-primary/20" type="checkbox"/>
+<div class="flex-1 flex justify-between items-center">
+<span class="font-medium text-on-surface text-balance">Tam Yağlı Süzme Peynir</span>
+<span class="text-sm text-outline px-3 py-1 bg-surface-container-low dark:bg-white/5 rounded-full shrink-0">1 Adet</span>
+</div>
+<button class="p-2 text-error/60 hover:text-error transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+<!-- Global Aksiyonlar -->
+<div class="flex flex-col gap-3 py-6">
+<button class="w-full h-12 flex items-center justify-center gap-2 border-2 border-surface-container-high dark:border-white/10 text-on-surface-variant font-semibold rounded-xl active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="check_circle">check_circle</span>
+                İşaretlileri Temizle
+            </button>
+<button class="w-full h-12 flex items-center justify-center gap-2 text-error font-semibold rounded-xl active:scale-[0.98] transition-all hover:bg-error/5">
+<span class="material-symbols-outlined text-lg" data-icon="delete_sweep">delete_sweep</span>
+                Tümünü Sil
+            </button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 pb-safe bg-white/85 dark:bg-[#0e0e0e]/85 backdrop-blur-xl shadow-[0_-4px_24px_rgba(0,0,0,0.06)]">
+<div class="flex justify-around items-center h-20 px-4 w-full max-w-2xl mx-auto">
+<button class="flex flex-col items-center justify-center text-[#9b3f00] dark:text-[#ff7a2c] scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="format_list_bulleted" style="font-variation-settings: 'FILL' 1;">format_list_bulleted</span>
+<span class="font-['Sora'] font-bold text-[10px] uppercase tracking-wider mt-1">Listelerim</span>
+</button>
+<button class="flex flex-col items-center justify-center text-gray-500 dark:text-gray-400 opacity-60 hover:text-[#ff7a2c] transition-colors">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span class="font-['Sora'] font-bold text-[10px] uppercase tracking-wider mt-1">Sepetim</span>
+</button>
+<button class="flex flex-col items-center justify-center text-gray-500 dark:text-gray-400 opacity-60 hover:text-[#ff7a2c] transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-['Sora'] font-bold text-[10px] uppercase tracking-wider mt-1">Ayarlar</span>
+</button>
+</div>
+</nav>
+<!-- Floating Add Button (Decorative/Functional) -->
+<button class="fixed right-6 bottom-24 w-14 h-14 bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-full shadow-lg flex items-center justify-center active:scale-90 transition-all z-40 md:hidden">
+<span class="material-symbols-outlined text-3xl" data-icon="add">add</span>
+</button>
+</body></html>

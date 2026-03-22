@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html class="light" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Alışveriş Listesi - Silme Onayı</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8f6f5;
+        }
+        .font-sora {
+            font-family: 'Sora', sans-serif;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-high": "#e4e2e2",
+              "on-tertiary-fixed": "#342200",
+              "surface-container": "#eae8e7",
+              "surface-bright": "#f8f6f5",
+              "on-surface": "#2e2f2f",
+              "surface": "#f8f6f5",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-container": "#713800",
+              "tertiary-dim": "#6b4900",
+              "secondary-dim": "#7e3f00",
+              "inverse-surface": "#0e0e0e",
+              "tertiary-container": "#f7b21f",
+              "inverse-on-surface": "#9e9d9c",
+              "on-secondary-fixed-variant": "#7f3f00",
+              "surface-container-highest": "#dedcdc",
+              "on-error-container": "#520c00",
+              "tertiary-fixed": "#f7b21f",
+              "on-primary-fixed": "#000000",
+              "outline-variant": "#aeadac",
+              "on-tertiary": "#fff1df",
+              "surface-dim": "#d5d4d4",
+              "on-secondary-fixed": "#552800",
+              "tertiary": "#7a5400",
+              "inverse-primary": "#fd6c00",
+              "background": "#f8f6f5",
+              "on-surface-variant": "#5c5b5b",
+              "error-dim": "#b92902",
+              "error-container": "#f95630",
+              "surface-container-low": "#f2f0f0",
+              "secondary-fixed-dim": "#ffb37c",
+              "primary-fixed-dim": "#f46800",
+              "surface-variant": "#dedcdc",
+              "error": "#b02500",
+              "primary": "#9b3f00",
+              "on-error": "#ffefec",
+              "secondary": "#8f4800",
+              "tertiary-fixed-dim": "#e7a407",
+              "on-primary": "#fff0ea",
+              "on-tertiary-fixed-variant": "#5b3e00",
+              "on-background": "#2e2f2f",
+              "primary-fixed": "#ff7a2c",
+              "on-primary-container": "#401600",
+              "on-primary-fixed-variant": "#4f1d00",
+              "on-tertiary-container": "#4f3600",
+              "on-secondary": "#fff0e8",
+              "primary-container": "#ff7a2c",
+              "outline": "#777776",
+              "secondary-fixed": "#ffc69f",
+              "secondary-container": "#ffc69f",
+              "surface-tint": "#9b3f00"
+            },
+            fontFamily: {
+              "headline": ["Sora", "Plus Jakarta Sans"],
+              "body": ["Plus Jakarta Sans"],
+              "label": ["Plus Jakarta Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "3xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased overflow-hidden">
+<!-- BACKGROUND CONTENT (SCREEN_4) -->
+<div class="fixed inset-0 z-0 filter blur-[2px] brightness-75 transition-all">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full flex justify-between items-center px-6 py-4 bg-white/80 backdrop-blur-md z-50 shadow-sm">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#9b3f00]" data-icon="menu">menu</span>
+<h1 class="font-['Sora'] font-semibold text-2xl tracking-tight text-[#9b3f00]">Alışveriş Listesi</h1>
+</div>
+<span class="material-symbols-outlined text-slate-600" data-icon="more_vert">more_vert</span>
+</header>
+<!-- Main Content (Bento Grid Style) -->
+<main class="pt-24 pb-32 px-6 max-w-2xl mx-auto space-y-8">
+<div class="space-y-2">
+<h2 class="text-4xl font-bold font-sora tracking-tight">Haftalık Market</h2>
+<p class="text-on-surface-variant">12 Ürün • 24 Ekim 2023</p>
+</div>
+<!-- Categories & Items -->
+<section class="space-y-6">
+<div>
+<h3 class="headline-sm font-semibold mb-4 text-on-surface">Manav</h3>
+<div class="grid grid-cols-1 gap-4">
+<div class="bg-surface-container-lowest p-5 rounded-2xl flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-4">
+<div class="w-6 h-6 rounded-full border-2 border-primary-container"></div>
+<div>
+<p class="font-medium text-lg">Organik Domates</p>
+<p class="text-sm text-on-surface-variant">2 Kg</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="drag_indicator">drag_indicator</span>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-2xl flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-4">
+<div class="w-6 h-6 rounded-full border-2 border-primary-container"></div>
+<div>
+<p class="font-medium text-lg">Muz (Yerli)</p>
+<p class="text-sm text-on-surface-variant">1 Salkım</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="drag_indicator">drag_indicator</span>
+</div>
+</div>
+</div>
+<div>
+<h3 class="headline-sm font-semibold mb-4 text-on-surface">Süt ve Kahvaltılık</h3>
+<div class="grid grid-cols-1 gap-4">
+<div class="bg-surface-container-lowest p-5 rounded-2xl flex items-center justify-between shadow-sm opacity-60">
+<div class="flex items-center gap-4">
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-sm" data-icon="check">check</span>
+</div>
+<div>
+<p class="font-medium text-lg line-through">Tam Yağlı Süt</p>
+<p class="text-sm text-on-surface-variant">2 Adet</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="drag_indicator">drag_indicator</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Inactive Background) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-white/85 backdrop-blur-lg rounded-t-[24px] shadow-[0_-8px_24px_rgba(0,0,0,0.06)]">
+<div class="flex flex-col items-center justify-center text-slate-500">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-['Sora'] text-[10px] font-bold uppercase tracking-wider">Ana Sayfa</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-orange-100 text-[#9b3f00] rounded-2xl px-4 py-2">
+<span class="material-symbols-outlined mb-1" data-icon="shopping_basket">shopping_basket</span>
+<span class="font-['Sora'] text-[10px] font-bold uppercase tracking-wider">Listelerim</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-500">
+<span class="material-symbols-outlined mb-1" data-icon="history">history</span>
+<span class="font-['Sora'] text-[10px] font-bold uppercase tracking-wider">Geçmiş</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-500">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-['Sora'] text-[10px] font-bold uppercase tracking-wider">Profil</span>
+</div>
+</nav>
+</div>
+<!-- MODAL OVERLAY -->
+<div class="fixed inset-0 z-[100] bg-black/40 backdrop-blur-[2px] flex items-end justify-center">
+<!-- MODAL BOX (Slide-up effect simulation) -->
+<div class="w-full max-w-md bg-surface-container-lowest rounded-t-[32px] p-8 shadow-2xl transform transition-transform duration-300 translate-y-0">
+<!-- Handle Decorator -->
+<div class="w-12 h-1.5 bg-surface-container-high rounded-full mx-auto mb-8"></div>
+<!-- Modal Content -->
+<div class="flex flex-col items-center text-center">
+<!-- Alert Icon -->
+<div class="w-16 h-16 rounded-full bg-error-container/20 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-error text-4xl" data-icon="error" style="font-variation-settings: 'FILL' 1;">error</span>
+</div>
+<h2 class="text-2xl font-bold font-sora text-on-surface mb-3">Tümünü Sil</h2>
+<p class="text-on-surface-variant leading-relaxed px-4 mb-10">
+                    Tüm ürünleri silmek istediğinize emin misiniz? Bu işlem geri alınamaz.
+                </p>
+<!-- Action Buttons -->
+<div class="w-full flex gap-4">
+<button class="flex-1 py-4 px-6 rounded-2xl border-2 border-surface-container-high text-on-surface font-semibold font-sora transition-all active:scale-95 hover:bg-surface-container-low">
+                        İptal
+                    </button>
+<button class="flex-1 py-4 px-6 rounded-2xl bg-error text-on-error font-semibold font-sora transition-all active:scale-95 shadow-lg shadow-error/20 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-xl" data-icon="delete">delete</span>
+                        Sil
+                    </button>
+</div>
+</div>
+<!-- Extra Padding for iPhone Home Bar -->
+<div class="h-6"></div>
+</div>
+</div>
+</body></html>
